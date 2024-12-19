@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список Мультфильмов</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            column-gap: 40px;
+            font-family: "Consola Mono";
+            color: #233644;
+        }
+        header {
+            height: 70vh;
+            text-align: center;
+            justify-content: center;
+            align-content: center;
+        }
+        h1 {
+            font-size: 72px;
+            font-family: "Consola Mono";
+            color: #233644;
+        }
+        .filter {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: center;
+            align-content: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        table {
+            margin: auto;
+            width: 90%;
+            border-collapse: collapse;
+            padding-bottom: 80px;
+            padding-top: 40px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            text-align: center;
+        }
+        button {
+            font-size: 22px;
+            font-family: "Consola Mono";
+            background-color: #E6ECDE;
+        }
+    </style>
+</head>
+<body bgcolor="#E6ECDE">
+    <div style="position: absolute; top: 20px; left: 1440px;">
+        <a href="Main.html">
+            <button>Главная</button>
+        </a>
+    </div>
+    <header>
+        <h1>Топ 50 мультфильмов</h1>
+    </header>
+    <div class="div-table">
+        <div class="filter">
+            <details>
+                <summary> График </summary>
+                <form>
+                    <p>
+                        Значение по оси OX:<br>
+                        <input type="radio" name="genre" value="m"> Жанр <br>
+                        <input type="radio" name="year" value="y"> Год <br>
+                        <input type="radio" name="rate" value="s"> Оценка
+                    </p>
+
+                    <input type="checkbox" name="maxRate" value="1"> Максимальная оценка <br>
+                    <input type="checkbox" name="minRate" value="0"> Минимальная оценка <br>
+
+                    <br><button type="submit" class="complete-button"> Готово </button>
+                </form>
+            </details><br>
+
+            <details>
+                <summary> Фильтр </summary>
+                <br>
+                <label for="genre-name">Название жанра</label><br>
+                <input type="text" id="genre-name" name="genreName" placeholder="Приключения" required><br>
+
+                <br><label>Оценка от и до</label><br>
+                <div>
+                    <input type="number" id="start-rate" name="fromRate" required>
+                    <span>to</span>
+                    <input type="number" id="end-sale" name="endRate" required>
+                </div>
+
+                <br><label>Год от и до</label><br>
+                <div>
+                    <input type="number" id="start-year" name="fromYear" required>
+                    <span>to</span>
+                    <input type="number" id="end-year" name="endYear" required>
+                </div>
+
+                <br><button type="submit" id="searchBtn" class="complete-botton">Готово</button>
+            </details><br>
+
+            <details>
+                <summary> Сортировка </summary>
+                <form>
+                    <p>Первый уровень:</p>
+                    <select>
+                        <option value="0" selected> Жанр </option>
+                        <option value="1"> Год </option>
+                        <option value="2"> Оценка </option>
+                    </select>
+                    <p>Второй уровень:</p>
+                    <select>
+                        <option value="0" selected> Жанр </option>
+                        <option value="1"> Год </option>
+                        <option value="2"> Оценка </option>
+                    </select>
+                    <p>Третий уровень:</p>
+                    <select>
+                        <option value="0" selected> Жанр </option>
+                        <option value="1"> Год </option>
+                        <option value="2"> Оценка </option>
+                    </select>
+                    <br><br><button type="submit" id="sortedBtn" class="complete-botton">Готово</button>
+                </form>
+            </details><br>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Название мультфильма</th>
+                    <th>Год релиза</th>
+                    <th>Режиссер</th>
+                    <th>Жанр</th>
+                    <th>Оценка</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Spirited Away</td><td>2001</td><td>Hayao Miyazaki</td><td>Приключения</td><td>8.6</td></tr>
+                <tr><td>2</td><td>My Neighbor Totoro</td><td>1988</td><td>Hayao Miyazaki</td><td>Приключения</td><td>8.2</td></tr>
+                <tr><td>3</td><td>Akira</td><td>1988</td><td>Katsuhiro Otomo</td><td>Научная фантастика</td><td>8.0</td></tr>
+                <tr><td>4</td><td>Princess Mononoke</td><td>1997</td><td>Hayao Miyazaki</td><td>Фэнтези</td><td>8.4</td></tr>
+                <tr><td>5</td><td>Ghost in the Shell</td><td>1995</td><td>Mamoru Oshii</td><td>Научная фантастика</td><td>8.0</td></tr>
+                <tr><td>6</td><td>Howl's Moving Castle</td><td>2004</td><td>Hayao Miyazaki</td><td>Фэнтези</td><td>8.2</td></tr>
+                <tr><td>7</td><td>Nausicaä of the Valley of the Wind</td><td>1984</td><td>Hayao Miyazaki</td><td>Фэнтези</td><td>8.1</td></tr>
+                <tr><td>8</td><td>Your Name</td><td>2016</td><td>Makoto Shinkai</td><td>Романтика</td><td>8.4</td></tr>
+                <tr><td>9</td><td>A Silent Voice</td><td>2016</td><td>Naoko Yamada</td><td>Драма</td><td>8.2</td></tr>
+                <tr><td>10</td><td>The Wind Rises</td><td>2013</td><td>Hayao Miyazaki</td><td>Драма</td><td>7.8</td></tr>
+                <tr><td>11</td><td>Grave of the Fireflies</td><td>1988</td><td>Isao Takahata</td><td>Драма</td><td>8.5</td></tr>
+                <tr><td>12</td><td>Wolf Children</td><td>2012</td><td>Mamoru Hosoda</td><td>Драма</td><td>8.1</td></tr>
+                <tr><td>13</td><td>The Tale of the Princess Kaguya</td><td>2013</td><td>Isao Takahata</td><td>Драма</td><td>8.0</td></tr>
+                <tr><td>14</td><td>The Girl Who Leapt Through Time</td><td>2006</td><td>Mamoru Hosoda</td><td>Фэнтези</td><td>7.7</td></tr>
+                <tr><td>15</td><td>Perfect Blue</td><td>1997</td><td>Satoshi Kon</td><td>Психологический триллер</td><td>8.0</td></tr>
+                <tr><td>16</td><td>Paprika</td><td>2006</td><td>Satoshi Kon</td><td>Фэнтези</td><td>7.7</td></tr>
+                <tr><td>17</td><td>5 Centimeters per Second</td><td>2007</td><td>Makoto Shinkai</td><td>Романтика</td><td>7.7</td></tr>
+                <tr><td>18</td><td>Kiki's Delivery Service</td><td>1989</td><td>Hayao Miyazaki</td><td>Приключения</td><td>7.9</td></tr>
+                <tr><td>19</td><td>Tokyo Godfathers</td><td>2003</td><td>Satoshi Kon</td><td>Драма</td><td>7.8</td></tr>
+                <tr><td>20</td><td>The Secret World of Arrietty</td><td>2010</td><td>Hiromasa Yonebayashi</td><td>Фэнтези</td><td>6.9</td></tr>
+                <tr><td>21</td><td>The Wind Rises</td><td>2013</td><td>Hayao Miyazaki</td><td>Драма</td><td>7.8</td></tr>
+                <tr><td>22</td><td>In This Corner of the World</td><td>2016</td><td>Sunao Katabuchi</td><td>Драма</td><td>8.0</td></tr>
+                <tr><td>23</td><td>When Marnie Was There</td><td>2014</td><td>Hiromasa Yonebayashi</td><td>Драма</td><td>7.7</td></tr>
+                <tr><td>24</td><td>The Cat Returns</td><td>2002</td><td>Hiroyuki Morita</td><td>Приключения</td><td>7.3</td></tr>
+                <tr><td>25</td><td>Laputa: Castle in the Sky</td><td>1986</td><td>Hayao Miyazaki</td><td>Приключения</td><td>8.0</td></tr>
+                <tr><td>26</td><td>Ponyo</td><td>2008</td><td>Hayao Miyazaki</td><td>Приключения</td><td>7.7</td></tr>
+                <tr><td>27</td><td>The Boy and the Beast</td><td>2015</td><td>Mamoru Hosoda</td><td>Драма</td><td>7.7</td></tr>
+                <tr><td>28</td><td>Belle</td><td>2021</td><td>Mamoru Hosoda</td><td>Драма</td><td>7.7</td></tr>
+                <tr><td>29</td><td>Summer Wars</td><td>2009</td><td>Mamoru Hosoda</td><td>Драма</td><td>7.5</td></tr>
+                <tr><td>30</td><td>The Promised Neverland</td><td>2019</td><td>Mamoru Kanbe</td><td>Ужасы</td><td>8.0</td></tr>
+                <tr><td>31</td><td>The Irregular at Magic High School</td><td>2014</td><td>Takashi Watanabe</td><td>Экшн</td><td>7.6</td></tr>
+                <tr><td>32</td><td>Cowboy Bebop: The Movie</td><td>2001</td><td>Shinichirō Watanabe</td><td>Экшн</td><td>7.9</td></tr>
+                <tr><td>33</td><td>Trigun: Badlands Rumble</td><td>2010</td><td>Satoshi Nishimura</td><td>Экшн</td><td>7.6</td></tr>
+                <tr><td>34</td><td>Samurai X: Trust and Betrayal</td><td>1999</td><td>Kazuhiro Furuhashi</td><td>Экшн</td><td>8.2</td></tr>
+                <tr><td>35</td><td>Mobile Suit Gundam: Char's Counterattack</td><td>1988</td><td>Yoshiyuki Tomino</td><td>Научная фантастика</td><td>7.8</td></tr>
+                <tr><td>36</td><td>Rurouni Kenshin: The Final</td><td>2021</td><td>Keishi Ōtomo</td><td>Экшн</td><td>7.5</td></tr>
+                <tr><td>37</td><td>Dragon Ball Z: Battle of Gods</td><td>2013</td><td>Masahiro Hosoda</td><td>Экшн</td><td>7.4</td></tr>
+                <tr><td>38</td><td>Neon Genesis Evangelion: The End of Evangelion</td><td>1997</td><td>Hideaki Anno</td><td>Экшн</td><td>8.4</td></tr>
+                <tr><td>39</td><td>Death Note: The Last Name</td><td>2006</td><td>Shūsuke Kaneko</td><td>Триллер</td><td>7.6</td></tr>
+                <tr><td>40</td><td>Bleach: Memories of Nobody</td><td>2006</td><td>Noriyuki Abe</td><td>Экшн</td><td>7.2</td></tr>
+                <tr><td>41</td><td>One Piece Film: Strong World</td><td>2009</td><td>Munehisa Sakai</td><td>Экшн</td><td>7.9</td></tr>
+                <tr><td>42</td><td>Evangelion: 1.0 You Are (Not) Alone</td><td>2007</td><td>Hideaki Anno</td><td>Научная фантастика</td><td>7.8</td></tr>
+                <tr><td>43</td><td>Attack on Titan: The Movie</td><td>2015</td><td>Shinji Higuchi</td><td>Экшн</td><td>6.5</td></tr>
+                <tr><td>44</td><td>The Case of Hana & Alice</td><td>2015</td><td>Shunji Iwai</td><td>Драма</td><td>7.6</td></tr>
+                <tr><td>45</td><td>The Garden of Words</td><td>2013</td><td>Makoto Shinkai</td><td>Романтика</td><td>7.6</td></tr>
+                <tr><td>46</td><td>Sword Art Online: Ordinal Scale</td><td>2017</td><td>Tomohiko Itō</td><td>Экшн</td><td>7.2</td></tr>
+                <tr><td>47</td><td>Naruto Shippuden: The Last</td><td>2014</td><td>Tsuneo Kobayashi</td><td>Экшн</td><td>7.7</td></tr>
+                <tr><td>48</td><td>Lupin III: The Castle of Cagliostro</td><td>1979</td><td>Hayao Miyazaki</td><td>Приключения</td><td>7.9</td></tr>
+                <tr><td>49</td><td>The Legend of the Galactic Heroes</td><td>1988</td><td>Noboru Ishiguro</td><td>Научная фантастика</td><td>8.0</td></tr>
+                <tr><td>50</td><td>Spirited Away: Live in Concert</td><td>2002</td><td>Hayao Miyazaki</td><td>Музыкальный</td><td>7.8</td></tr>
+                <tr><td>51</td><td>Your Name: Another Side: Earthbound</td><td>2017</td><td>Makoto Shinkai</td><td>Романтика</td><td>7.0</td></tr>
+                <tr><td>52</td><td>The Place Promised in Our Early Days</td><td>2004</td><td>Makoto Shinkai</td><td>Романтика</td><td>7.7</td></tr>
+                <tr><td>53</td><td>Tales from Earthsea</td><td>2006</td><td>Gorō Miyazaki</td><td>Фэнтези</td><td>6.6</td></tr>
+                <tr><td>54</td><td>The Last: Naruto the Movie</td><td>2014</td><td>Tsuneo Kobayashi</td><td>Экшн</td><td>7.7</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

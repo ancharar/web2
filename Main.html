@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультфильмы Хаяо Миядзаки</title>
+    <style>
+        body {
+            background: url("img/background.png");
+            font-size: 24px;
+            background-size: cover;
+            margin: 0;
+            height: 100vh; /* Задаем высоту для всего окна */
+            padding-left: 40px;
+            padding-top: 40px;
+            row-gap: 50px;
+            display: flex;
+            flex-direction: row;
+            backdrop-filter: blur(8px);
+            font-family: "Consola Mono";
+            color: #233644;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            padding-top: 40px;
+            gap: 50px;
+        }
+
+        .text {
+            max-width: 50%;
+        }
+
+        .title {
+            font-size: 56px;
+            padding-bottom: 40px;
+        }
+
+        .totoro {
+            padding-left: 30px;
+        }
+        button {
+            font-size: 22px;
+            font-family: "Consola Mono";
+            background-color: #E6ECDE;
+        }
+    </style>
+</head>
+<body>
+    <section class="text">
+        <div class="header">
+            <a href="popular.html">
+                <button>Самый популярный мультфильм</button>
+            </a>
+            <a href="list.html">
+                <button>Топ 50 мультфильмов</button>
+            </a>
+        </div>
+        <h1 class="title">Mультфильмы Хаяо Миядзаки</h1>
+        <div class="description">
+            <hr color="233644" size="4">
+            <p><strong>Миядзаки</strong> — турбулентный автор с поразительно ровной фильмографией. Кажется, что перед каждым фильмом он заново себя уничтожает, сгорает полностью, чтобы через несколько лет восстать вновь. Его знают как режиссера добрых сказок, но в картинах Миядзаки много боли, злости и тихого принятия, что человечество обречено. </p>
+            <hr color="233644" size="4">
+        </div>
+        
+    </section>
+    <section class="totoro">
+        <img src="img/totoro.png" alt="Totoro">
+    </section>
+</body>
+</html>
