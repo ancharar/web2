@@ -1,0 +1,197 @@
+mixin createMenu(menu, active)
+  header.menu
+    h1.menu__title Mультфильмы Хаяо Миядзаки
+    each value, key in menu
+      if active == key
+        a.menu__link.menu__link_active(href=value)= key
+      else
+        a.menu__link(href=value)= key
+
+mixin imagesSection(listImages)
+  section.images
+    div.images_main
+      a(href= "miyazaki.html") 
+        img(src=require(`./images/${listImages[0].file}`), alt=listImages[0].alt)
+    div.images_rest
+      each image, index in listImages
+        if index > 0
+          img(src=require(`./images/${image.file}`), alt=image.alt)
+
+mixin sections(listSections)
+  section.items
+    each section, index in listSections
+      div(class=`item${index + 1}`)
+        if section.image
+          img(src=require(`./images/${section.image}`), alt=section.alt)
+        div.item_description
+          h1= section.header
+          hr(color="233644", size="4")
+          p= section.paragraphs
+
+mixin createMenuBuild(menu, active)
+  header.menu
+    h1.menu__title Mультфильмы Хаяо Миядзаки
+    each value, key in menu
+        if key === "Главная"
+            a.menu__link(href=value)= key
+            if active
+                a.menu__link.menu__link_active(href="#")= active
+        else
+            a.menu__link(href=value)= key
+
+mixin galleryItem(image, altText = "Рисунок")
+  .image
+    a(href= "building.html") 
+      img(src=require("./images/" + image), alt=altText)
+
+mixin sectionBlock(header, image, paragraphs)
+  .content
+    .image
+      img(src=require("./images/" + image), alt=header)
+    h3= header
+    each paragraph in paragraphs
+      p= paragraph
+
+mixin sidebarItem(header, text, image)
+  .content
+    .text
+      h3= header
+      p= text
+    .image
+      img(src=require("./images/" + image), alt=header)
+
+mixin chart()
+  details
+    summary График
+    form
+      fieldset
+        legend
+          b Аргумент
+        label
+          input(type="radio", name="argue", value="0")
+          | Директор
+        br
+        label
+          input(type="radio", name="argue", value="1")
+          | Жанр
+        br
+        label
+          input(type="radio", name="argue", value="2")
+          | Год
+      fieldset
+        legend
+          b Значения
+        br
+        label
+          input(type="checkbox", name="value", value="0")
+          | Оценка
+      p
+        input(type="button", value="Построить")
+
+mixin filter()
+  details
+    summary Фильтр
+    form
+      fieldset
+        legend
+          b Поля
+        table
+          tr
+            td Название мультфильмов:
+            td
+              input(type="text")
+          tr
+            td Директор:
+            td
+              input(type="text")
+          tr
+            td Год выпуска:
+            td
+              span от
+              input(type="text")
+              span до
+              input(type="text")
+          tr
+            td Жанр:
+            td
+              input(type="text")
+          tr
+            td Оценка:
+            td
+              span от
+              input(type="text")
+              span до
+              input(type="text")
+      p
+        input(type="button", value="Найти")
+
+mixin sorting()
+  details
+    summary Сортировка
+    form
+      fieldset
+        legend
+          b Уровни
+        table
+          tr
+            td Первый уровень:
+            td
+              select(name="bool1")
+                option(value="0") Нет
+                option(value="1") Название мультфильмов
+                option(value="2") Директор
+                option(value="3") Год выпуска
+                option(value="4") Жанр
+                option(value="5") Оценка
+            td
+              label
+                input(type="checkbox", name="sort")
+                | по убыванию?
+          tr
+            td Второй уровень:
+            td
+              select(name="bool2")
+                option(value="0") Нет
+                option(value="1") Название мультфильмов
+                option(value="2") Директор
+                option(value="3") Год выпуска
+                option(value="4") Жанр
+                option(value="5") Оценка
+            td
+              label
+                input(type="checkbox", name="sort")
+                | по убыванию?
+          tr
+            td Третий уровень:
+            td
+              select(name="bool3")
+                option(value="0") Нет
+                option(value="1") Название мультфильмов
+                option(value="2") Директор
+                option(value="3") Год выпуска
+                option(value="4") Жанр
+                option(value="5") Оценка
+            td
+              label
+                input(type="checkbox", name="sort")
+                | по убыванию?
+      p
+        input(type="button", value="Сортировать")
+
+mixin trackTable(moviesData)
+  table
+    thead
+      tr
+        th Название мультфильмов
+        th Директор
+        th Год выпуска
+        th Жанр
+        th Оценка
+    tbody
+      each track in moviesData
+        tr
+          td= track.title
+          td= track.director
+          td= track.year
+          td= track.genre
+          td= track.rating

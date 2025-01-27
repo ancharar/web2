@@ -1,0 +1,11 @@
+extends template
+
+block header
+  +createMenu(dictMenu, 'Топ 50 мультфильмов')
+
+block section.items
+  +chart()
+  +filter()
+  +sorting()
+
+  +trackTable(tracksData)

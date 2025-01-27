@@ -1,0 +1,86 @@
+body
+  background-color #E6ECDE
+  font-family "Consola Mono"
+  font-size 150%
+  background-size cover
+  margin 0
+  color #233644
+
+flex-mixin(displayType, direction)
+  display displayType
+  flex-direction direction
+
+.menu
+  flex-mixin(flex, row)
+  align-items center
+  background-color #f0f0f0
+  padding 10px
+  border-bottom 1px solid #ddd
+  box-shadow 0 2px 4px rgba(0, 0, 0, 0.1)
+
+  &__title 
+    margin-right auto
+    color #333
+
+  &__link 
+    text-decoration none
+    margin-left 15px
+    color #555
+    transition color 0.3s
+
+    &_active 
+      color #e74c3c
+
+    &:hover 
+      color #e74c3c
+
+.images
+  flex-mixin(flex, row)
+  margin-bottom 3%
+
+.images_main:hover
+  transform scale(1.05)
+  transition transform 0.3s ease-in-out
+
+.images_rest img:hover
+  transform scale(1.02)
+  transition transform 0.3s ease-in-out
+
+.images_main
+  flex-mixin(flex, row)
+
+.images_main img
+  width 64vw
+  height 98.6vh
+
+.images_rest
+  flex-mixin(flex, column)
+
+.images_rest img
+  width 100%
+
+.items
+  flex-mixin(flex, column)
+  height 50vh
+  text-align center
+  gap 3%
+
+.item1
+  display flex
+  flex-direction row-reverse
+
+.item1 img
+  width 100vw
+  height 40vh
+
+.item2
+  display flex
+  flex-direction row
+
+.item3
+  display flex
+  flex-direction row
+
+.item3 img
+  width 38vw
+  height 35vh

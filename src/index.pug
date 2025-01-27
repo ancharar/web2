@@ -1,0 +1,10 @@
+extends template
+
+block header
+  +createMenu(dictMenu, 'Главная')
+
+block section.images
+  +imagesSection(listImages)
+
+block section.items
+  +sections(listSections)

@@ -1,0 +1,11 @@
+extends template
+
+block header
+  +createMenuBuild(dictMenu, structures[0].menuItem)
+
+block section.images
+  img.big(src= require("./images/" + structures[0].pict))
+
+block section.items
+  p= structures[0].firstP 
+  p= structures[0].secondP
